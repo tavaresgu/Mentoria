@@ -3,10 +3,13 @@
   "builds": [
     { "src": "**/*", "use": "@vercel/static" }
   ],
-  "routes": [
-    { "src": "/icons/(.*)", "dest": "/icons/$1" },
-    { "src": "/(.*\\.(jpg|gif|css|svg))", "dest": "/$1" },
-    { "src": "/(.*)", "dest": "/index.html" }
+  "rewrites": [
+    { "source": "/icons/:path*", "destination": "/icons/:path*" },
+    { "source": "/:path*.jpg", "destination": "/:path*.jpg" },
+    { "source": "/:path*.gif", "destination": "/:path*.gif" },
+    { "source": "/:path*.css", "destination": "/:path*.css" },
+    { "source": "/:path*.svg", "destination": "/:path*.svg" },
+    { "source": "/(.*)", "destination": "/index.html" }
   ],
   "headers": [
     {
